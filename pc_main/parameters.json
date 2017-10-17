@@ -1,0 +1,1 @@
+{"clf__criterion": "gini", "clf__max_depth": 10, "clf__n_estimators": 1000}
