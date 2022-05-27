@@ -4,11 +4,11 @@ import re
 
 
 __all__ = [
-    'BabyCryPredictor'
+    'AnimalSoundPredictor'
 ]
 
 
-class BabyCryPredictor:
+class AnimalSoundPredictor:
     """
     Class to classify a new audio signal and determine if it's a baby cry
     """
@@ -22,26 +22,24 @@ class BabyCryPredictor:
         Make prediction with trained model
 
         :param new_signal: 1d array, 34 features
-        :return: 1 (it's baby cry); 0 (it's not a baby cry)
+        :return: 1 (is cat)
         """
 
-        print 'Hello'
+        print 'Hello, how do you do?'
         category = self.model.predict(new_signal)
       
         print category
-        # category is an array of the kind array(['004 - Baby cry'], dtype=object)
-        return self._is_baby_cry(category[0])
+        return self._is_cat_detected(category[0])
 
     @staticmethod
-    def _is_baby_cry(string):
+    def _is_cat_detected(string):
         """
         String analysis to detect if it is the baby cry category
         :param string: output of model prediction as string
-        :return: 1 (it's baby cry); 0 (it's not a baby cry)
+        :return: 1 (is cat); 0 (other animal)
         """
 
         print string
-       # match = re.search('([Bb][Aa][Bb][Yy])[^a-zA-Z]*([Cc][Rr][Yy])*', string)
         match = re.search('([Ca][Aa][Tt])[^a-zA-Z]*', string)
         
         if match:

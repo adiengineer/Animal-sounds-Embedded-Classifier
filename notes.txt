@@ -1,0 +1,35 @@
+data format:
+1. OGG audio files- 
+- smaller than MP3 coz more compressed
+- but the sounds were meaningful to the human ear so is a 
+reasonable choice as input.
+
+q Data composition 
+- how big was the data? 1000 audio samples spread across 10 animal classes
+ - Care taken to balance the dataset
+
+the feature engineer object converts each audio file into
+a row of features.
+- features sampled are 
+zero_crossing_rate, rmse, mfcc, 
+spectral_centroid, spectral_rolloff, spectral_bandwidth
+
+Q check librosa docs. what do these features correspond to?
+why are they useful
+https://towardsdatascience.com/get-to-know-audio-feature-extraction-in-python-a499fdaefe42
+https://librosa.org/doc/main/generated/librosa.feature.mfcc.html#librosa.feature.mfcc
+
+- Spectogram features and computing them using Fourier transform
+* the analysis of complex time series functions is often easier in the frequency domain
+
+- other features are also summarazations of energy, amplitude, frequency 
+* mfccs are particularly useful for animal / human sounds- captures the variation
+Mel-frequency cepstral coefficients (MFCCs)
+
+Q what was the training algo used
+random forest ensemble. Dataset wasn't super big but given complexity of task
+the decision boundary is likely to be non-linear 
+
+hence better choice than logistic regression
+deep learning could have overfit on the relatively small dataset
+also decision trees are in principle easier to interpret

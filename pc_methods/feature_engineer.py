@@ -15,7 +15,7 @@ class FeatureEngineer:
     Feature engineering
     """
 
-    RATE = 44100   # All recordings in ESC are 44.1 kHz
+    RATE = 44100   # All recordings in ESC have 44.1 kHz sampling rate
     FRAME = 512    # Frame size in samples orig
     #FRAME = 8
     # Features' names
@@ -40,7 +40,7 @@ class FeatureEngineer:
         Each signal is cut into frames, features are computed for each frame and averaged [median].
         The numpy array is transformed into a data frame with named columns.
 
-        :param audio_data: the input signal samples with frequency 44.1 kHz
+        :param audio_data: the input signal samples with upto frequency 44.1 kHz
         :return: a numpy array (numOfFeatures x numOfShortTermWindows)
         """
 

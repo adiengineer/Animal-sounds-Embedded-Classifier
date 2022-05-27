@@ -32,8 +32,8 @@ class Reader:
 
         # Read file
         print 'changed' # debug
-        #sound = pydub.AudioSegment.from_file(self.file_name) changed
-        sound = pydub.AudioSegment.from_file('/media/aditya/New Volume/Semester 5/EL EHD/Project/baby_cry_detection-master/data/101 - Dog/1-30226-A.ogg') 
+        sound = pydub.AudioSegment.from_file(self.file_name) 
+        #sound = pydub.AudioSegment.from_file('/media/aditya/New Volume/Semester 5/EL EHD/Project/animal_sound_detection-master/data/101 - Dog/1-30226-A.ogg') 
         
         # check /media/aditya/New Volume/Semester 5/EL EHD/Project/baby_cry_detection-master/data/101 - Dog/1-30226-A.ogg
         

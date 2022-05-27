@@ -6,11 +6,11 @@ import sys
 import pickle
 
 
-egg_path = '%s/../lib/baby_cry_detection-0.1-py2.7.egg' % os.path.dirname(os.path.abspath(__file__)) #sim to jar file
+egg_path = '%s/../lib/animal_sound_detection-0.1-py2.7.egg' % os.path.dirname(os.path.abspath(__file__)) #sim to jar file
 sys.path.append(egg_path)
 
-from rpi_methods import Reader # where is this reader? !!!!!
-from rpi_methods.baby_cry_predictor import BabyCryPredictor
+from rpi_methods import Reader
+from rpi_methods.animal_sound_predictor import AnimalSoundPredictor
 
 from rpi_methods.feature_engineer import FeatureEngineer
 from rpi_methods.majority_voter import MajorityVoter
@@ -30,18 +30,18 @@ def main():
 
     # Arguments
     args = parser.parse_args()
-    load_path_data = '/media/aditya/New Volume/Semester 5/EL EHD/Project/baby_cry_detection-master/pc_main/testing_samples/'
-    load_path_model = '/media/aditya/New Volume/Semester 5/EL EHD/Project/baby_cry_detection-master/Results/'
-    save_path = '/media/aditya/New Volume/Semester 5/EL EHD/Project/baby_cry_detection-master/Results/'
+    load_path_data = '/media/aditya/New Volume/Semester 5/EL EHD/Project/animal_sound_detection-master/pc_main/testing_samples/'
+    load_path_model = '/media/aditya/New Volume/Semester 5/EL EHD/Project/animal_sound_detection-master/Results/'
+    save_path = '/media/aditya/New Volume/Semester 5/EL EHD/Project/animal_sound_detection-master/Results/'
 
     ####################################################################################################################
     # READ RAW SIGNAL
     ####################################################################################################################
 
     # Read signal, write code for reading wav file into floating point numbers using librosa load function
-   # file_name = '/media/aditya/New Volume/Semester 5/EL EHD/Project/baby_cry_detection-master/pc_main/testing_samples/german-shephard-daniel_simon.ogg'       # only one file in the folder (reading a stored file)
+   # file_name = '/media/aditya/New Volume/Semester 5/EL EHD/Project/animal_sound_detection-master/pc_main/testing_samples/german-shephard-daniel_simon.ogg'       # only one file in the folder (reading a stored file)
  
-    file_name = '/media/aditya/New Volume/Semester 5/EL EHD/Project/baby_cry_detection-master/rpi_methods/output.wav'
+    file_name = '/media/aditya/New Volume/Semester 5/EL EHD/Project/animal_sound_detection-master/rpi_methods/output.wav'
     file_reader = Reader(os.path.join(load_path_data, file_name))
     play_list = file_reader.read_audio_file() 
 
@@ -73,7 +73,7 @@ def main():
     with open((os.path.join(load_path_model, 'model.pkl')), 'rb') as fp:
         model = pickle.load(fp)
     
-    predictor = BabyCryPredictor(model)
+    predictor = AnimslSoundPredictor(model)
 
     predictions = list()
  

@@ -25,20 +25,20 @@ def main():
 
     # Arguments
     args = parser.parse_args()
-    load_path = '/media/aditya/New Volume/Semester 5/EL EHD/Project/baby_cry_detection-master/pc_main'
-    save_path = '/media/aditya/New Volume/Semester 5/EL EHD/Project/baby_cry_detection-master/pc_main'
+    load_path = '/media/aditya/New Volume/Semester 5/EL EHD/Project/animal_sound_detection-master/pc_main'
+    save_path = '/media/aditya/New Volume/Semester 5/EL EHD/Project/animal_sound_detection-master/pc_main'
 
     ####################################################################################################################
     # TRAIN MODEL
     ####################################################################################################################
 
     # load training dataframe from the csv file created by train_set.py
-    train_set = pd.read_csv(os.path.join(load_path, 'dataset.csv'),nrows=80) 
+    train_set = pd.read_csv(os.path.join(load_path, 'dataset.csv')) 
      #train_set = pd.read_csv(os.path.join(load_path, 'binary_dataset.csv'),nrows=80)
 
     # instantiate trainer and train
     train_classifier = TrainClassifier()
-    performance, parameters, best_estimator = train_classifier.train(train_set)
+    train_performance, parameters, best_estimator = train_classifier.train(train_set)
 
     ####################################################################################################################
     # SAVE
@@ -47,7 +47,7 @@ def main():
 # /usr/local/lib/python2.7/dist-packages
     # Save performances
     with open(os.path.join(save_path, 'performance.json'), 'w') as fp:
-        json.dump(performance, fp)
+        json.dump(train_performance, fp)
 
     # Save parameters
     with open(os.path.join(save_path, 'parameters.json'), 'w') as fp:

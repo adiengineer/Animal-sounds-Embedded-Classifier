@@ -7,7 +7,7 @@ __all__ = [
 
 class MajorityVoter:
     """
-    Class to make a majority vote over multiple (5 or more? odd number anyway) classifications
+    Class to make a majority vote over multiple classifications
     """
 
     def __init__(self, prediction_list):

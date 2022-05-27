@@ -24,8 +24,8 @@ def main():
     # Arguments
     args = parser.parse_args()
     #load_path = args.load_path
-    load_path='/media/aditya/New Volume/Semester 5/EL EHD/Project/baby_cry_detection-master/data/'
-    save_path = '/media/aditya/New Volume/Semester 5/EL EHD/Project/baby_cry_detection-master/pc_main' # save where training will occur
+    load_path='/media/aditya/New Volume/Semester 5/EL EHD/Project/animal_sound_detection-master/data/'
+    save_path = '/media/aditya/New Volume/Semester 5/EL EHD/Project/animal_sound_detection-master/pc_main' # save where training will occur
 
     ####################################################################################################################
     # READ FILES IN SUB-FOLDERS of load_path result: will get dataframe in each row having feature of 1 audio clip
@@ -34,9 +34,6 @@ def main():
     # list load_path sub-folders
     regex = re.compile(r'^[0-9]') # to detect  sound file folders starting with numerals
     directory_list = [i for i in os.listdir(load_path) if regex.search(i)]
-    
-    # debug
-    #print directory_list
     
     # initialize empty data frame for results
     concat_features = pd.DataFrame()
@@ -51,7 +48,6 @@ def main():
         
         # iteration on audio files in each sub-folder
         for audio_file in file_list:
-            #debug
             print os.path.join(load_path, directory, audio_file)
             file_reader = Reader(os.path.join(load_path, directory, audio_file))
             
