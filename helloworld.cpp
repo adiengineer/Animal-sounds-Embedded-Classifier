@@ -4,7 +4,7 @@
 
 int main()
 {
-    std::vector<std::string> msg{"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
+    std::vector<std::string> const msg{"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
 
     for (std::string const &word : msg)
     {
